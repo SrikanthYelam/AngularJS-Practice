@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="ControllerAsApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Directives: Manupulating the DOM with link()</title>
+  </head>
+  <body>
+    <h1>Directives: Manupulating the DOM with link()</h1>
+
+    <!-- List #1 - Unlimited Items -->
+    <div id="list" ng-controller="ShoppingListController1 as list">
+      <!-- <h3>Shopping List #1</h3> -->
+    <div>
+      <input type="text" ng-model="list.itemName" placeholder="item name">
+      <input type="text" ng-model="list.itemQuantity" placeholder="quantity">
+      <button ng-click="list.addItem();">Add Item To Shopping List</button>
+      <span>{{list.lastRemoved}}</span>
+    </div>
+
+      <shopping-list id="list1" items="list.items" title="{{list.title}}" on-remove="list.removeItem(index)">
+      <span class="warning"> WARNING! {{list.warning}}</span></shopping-list>
+
+      <shopping-list id="list2" items="list.items" title="{{list.title}}" on-remove="list.removeItem(index)">
+      <div>
+        <div class="title"> HORROR! </div>
+        <div> {{list.warning}} </div>
+      </div>
+      </shopping-list>
+    </div>
+  </body>
+</html>
