@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="msgApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style>body {font-size: 1.2em;}</style>
+    <title>Expressions and Interpolation</title>
+  </head>
+  <body>
+    <h1>Expressions and Interpolation</h1>
+    <div ng-controller="msgController">
+      {{name}} has a message for you: <br>
+      Original msg : {{sayMessage()}} <br>
+      Replaced msg : {{sayLovesMessage()}} <br>
+      Modified msg : {{sayLovesMessage() | truth : "travel" : "explore new places" | uppercase}}
+      <div>
+        Cost : {{travelcost | currency : "INR" : 4}}<br>
+        <button ng-click="Flip()">Flip Image</button>
+        <br><br>
+        <img ng-src="Images/{{imgName}}.png"></img>
+      </div>
+    </div>
+  </body>
+</html>
